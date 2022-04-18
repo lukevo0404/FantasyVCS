@@ -1,3 +1,3 @@
 module.exports = {
-  secret: "nguyen-secret-key",
+  secret: "duc-secret-key",
 };
