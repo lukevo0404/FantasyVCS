@@ -2,6 +2,7 @@ import React from 'react'
 import Hero from './Hero'
 import Features from './Features'
 import './Home.css'
+import HowToPlay from './HowToPlay'
 
 function Home() {
     return (
@@ -14,11 +15,8 @@ function Home() {
                 <img src='/images/Emblem_Diamond.png' id='emblem2' />
             </div>
             <hr id='hr1' />
-            <div className="title-text-wrapper">
-                <h1>FEATURES</h1>
-                <p>Assemble a league, talk some smack, draft players at every position, and go head-to-head with friends and family.</p>
-            </div>
             <Features/>
+            <HowToPlay/>
         </>
     )
 }

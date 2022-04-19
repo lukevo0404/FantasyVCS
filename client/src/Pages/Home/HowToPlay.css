@@ -1,0 +1,13 @@
+.htp-container {
+    background-image: linear-gradient(to bottom right, rgb(2, 0, 290, 0.35) 0%, rgb(0, 11, 53, 0.85) 50%), url(../../../public/images/htp-background.jpg);
+    background-size: cover;
+    width: 100%;
+    padding: 8rem 0;
+}
+
+.htp-step {
+    min-height: 14rem;
+    background: #191737;
+    box-shadow: 0px 4px 50px #0C002E;
+    border-radius: 10px;
+}
