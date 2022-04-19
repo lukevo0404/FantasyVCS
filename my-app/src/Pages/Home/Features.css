@@ -1,0 +1,27 @@
+.home-features-wrapper {
+    width: 80%;
+}
+
+.features-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    text-align: center;
+}
+
+.features-container img {
+    width: 45%;
+    margin-bottom: 1rem;
+}
+
+.features-container p {
+    color: #C3BFFF;
+    width: 140%;
+}
+
+#features-base {
+    width: 100%;
+    margin-top: -3.5rem;
+    z-index: -1;
+}

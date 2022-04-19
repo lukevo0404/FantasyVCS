@@ -1,0 +1,45 @@
+.btn {
+    padding: 0.5rem 2rem;
+    border-radius: 1000px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 800;
+}
+
+.btn--primary {
+    background-image: var(--gradient);
+    color: white;
+}
+
+.btn--outline {
+    border: solid 0.1rem transparent;
+    background-image: var(--gradient);
+    background-origin: border-box;
+    background-clip: content-box, border-box, text;
+    box-shadow: 0.1rem 1000px 1px #000b35 inset;
+    color: var(--teal);
+    transition: all 0.3s ease-out;
+}
+
+.btn--medium {
+    padding: 0.5rem 1.2rem;
+    font-size: 1rem;
+}
+
+.btn--large {
+    padding: 0.8rem 1.5rem;
+    font-size: 1.3rem;
+}
+
+.btn--medium:hover, .btn--large:hover {
+    background: white;
+    color: var(--teal);
+    transition: all 0.3s ease-out;
+    text-decoration: none;
+}
+
+.btn--outline:hover {
+    color: white !important;
+    box-shadow: none;
+}

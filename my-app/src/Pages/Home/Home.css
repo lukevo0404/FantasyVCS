@@ -1,0 +1,39 @@
+#background {
+    width: 101vw;
+    position: absolute;
+    z-index: -10;
+}
+
+.screenshot-container {
+    position: relative;
+    width: 70%;
+    margin: auto;
+    margin-top: -7rem;
+}
+
+#hero-screenshot {
+    width: 100%;
+}
+
+#emblem1, #emblem2 {
+    -webkit-filter: drop-shadow(0px 0.5rem 2rem #0C002E);
+    filter: drop-shadow(0px 0.5rem 2rem #0C002E);
+    position: absolute;
+}
+
+#emblem1 {
+    top: calc(0% - 4rem);
+    right: calc(0% - 5rem);
+    width: 10rem;
+}
+
+#emblem2 {
+    bottom: calc(0% - 6rem);
+    left: calc(0% - 7rem);
+    width: 14rem;
+}
+
+#hr1 {
+    margin-top: 12rem;
+    margin-bottom: 8rem;
+}

@@ -1,0 +1,29 @@
+.nav-item {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: white !important;
+    margin: 0 1rem;
+}
+
+#nav-logo {
+    width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+    .navbar-nav {
+        height: 3.5rem;
+    }
+    .nav-wrapper {
+        align-items: baseline !important;
+    }
+    .nav-wrapper a {
+        transition: all .2s ease-in-out
+    }
+    .nav-wrapper a:hover {
+        color: var(--teal) !important;
+        transform: scale(1.1);
+    }
+}
