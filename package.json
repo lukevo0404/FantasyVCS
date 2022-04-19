@@ -1,5 +1,11 @@
 {
-  "dependencies": {
-    "create-react-app": "^5.0.1"
-  }
+    "dependencies": {
+        "create-react-app": "^5.0.1",
+        "concurrently": "^6.2.1"
+    },
+    "scripts": {
+        "server-install": "npm install",
+        "client-install": "cd client && npm install",
+        "install-all": "concurrently \"npm run server-install\" \"npm run client-install\""
+    }
 }
