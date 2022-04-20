@@ -1,0 +1,12 @@
+.hero-container {
+    width: 100%;
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.hero-container .title-text-wrapper {
+    padding-top: 3rem !important;
+}
