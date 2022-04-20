@@ -11,7 +11,7 @@ export const Button = ({
     buttonStyle,
     buttonSize }) => {
     const checkButtonStyle = STYLES.includes(buttonStyle) ? buttonStyle : STYLES[0];
-    const checkButtonSizes = STYLES.includes(buttonStyle) ? buttonStyle : SIZES[0];
+    const checkButtonSizes = SIZES.includes(buttonSize) ? buttonSize : SIZES[0];
 
     return (
         <Link to='/sign-up' className='btn-mobile'>

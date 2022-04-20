@@ -3,10 +3,11 @@ import Hero from './Hero'
 import Features from './Features'
 import './Home.css'
 import HowToPlay from './HowToPlay'
+import CTA from './CTA'
 
 function Home() {
     return (
-        <>
+        <div className='home'>
             <img src='/images/background.svg' id='background' />
             <Hero />
             <div className="screenshot-container">
@@ -17,7 +18,8 @@ function Home() {
             <hr id='hr1' />
             <Features/>
             <HowToPlay/>
-        </>
+            <CTA/>
+        </div>
     )
 }
 
