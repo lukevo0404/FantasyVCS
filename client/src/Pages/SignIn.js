@@ -7,7 +7,7 @@ import './Home/Home.css'
 function SignIn() {
     return (
         <>
-            <img src='/images/background.svg' id='background' />
+            <img src='/images/hero-image.svg' id='background' />
             <Hero />
             
             
