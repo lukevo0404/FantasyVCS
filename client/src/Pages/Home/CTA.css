@@ -1,0 +1,13 @@
+.cta-div {
+    margin: auto;
+    width: 70%;
+    padding: 4rem 0;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.cta-div button {
+    margin: auto;
+    margin-top: 2rem;
+}
