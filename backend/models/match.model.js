@@ -9,19 +9,31 @@ const matchSchema= mongoose.Schema({
         type: Number,
         require: true
     },
-    numberofGame: {
-        type: Number,
-        min: 1,
-        max: 7,
+    type: {         //BO3 or BO5
+        type: String,
+        min: 3,
+        max: 5,
         require: true
     },
     length: {
         type: String,
-         require: true
+        require: true
     },
     status: {
         type: String,
         enum: ['ongoing', 'finished', 'canceled', 'postponed'],
+        require: true
+    },
+    teamAName: {
+        type: String,
+        require: true
+    },
+    teamBName: {
+        type: String,
+        require: true
+    },
+    result: {
+        type: String,
         require: true
     }
 });

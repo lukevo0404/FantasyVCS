@@ -17,8 +17,12 @@ app.use(express.json());
 // parse requests of content-type - application/x-www-form-urlencoded
 app.use(express.urlencoded({ extended: true }));
 
+app.use(bodyParser.json());
+
 const db = require("./models");
 const Role = db.role;
+
+const matchRoute = require('./routes/match.routes');
 
 const url =
 "mongodb+srv://timmyha619:14chui2103@ducdb.kjkro.mongodb.net/api_fantasy?retryWrites=true&w=majority";
@@ -44,6 +48,8 @@ app.get("/", (req, res) => {
 // routes
 require("./routes/auth.routes")(app);
 require("./routes/user.routes")(app);
+
+app.use('/matches', matchRoute);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;

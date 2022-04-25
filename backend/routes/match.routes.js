@@ -1,24 +1,19 @@
 const express = require('express');
 const router= express.Router();
-const Match=require('./match.model');
+const Match = require('../models/match.model');
+
+const matchController = require('../controllers/match.controller')
 
 //Get all Players
-router.get('/', async (req,res)=>{
-    try{
-        const matches = await Match.find();
-        res.json(matches)
-    }catch(e){
-        res.json({message: e});
-    }
-});
+router.get('/', matchController.index);
 
 //Create new match data
-router.post('/',async (req,res)=>{
+router.post('/', async (req,res)=>{
     const match = new Match(req.body);
 
     try{
-        await match.save();
-        res.json(match);
+        const saveMatch = await match.save();
+        res.json(saveMatch);
     }catch(e){
         res.json({message: e});
     }
@@ -34,7 +29,7 @@ router.delete('/:matchID',async (req,res)=>{
     }
 });
 
-//Get player by playerName
+//Get match by matchID
 router.get('/:matchID', async (req,res)=>{
     try{
         const match = await Match.find({playerName:req.params.playerName});
@@ -44,7 +39,7 @@ router.get('/:matchID', async (req,res)=>{
     }
 });
 
-//Update player by playerName
+//Update match by matchID
 
 router.patch('/:matchID', async (req,res) => {
     try{
