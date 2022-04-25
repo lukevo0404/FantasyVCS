@@ -11,7 +11,7 @@ function SignIn() {
         <>
             <img src='/images/hero-image.svg' id='background' />
             <Hero />
-            <div className="login">99k
+            <div className="login">
                 <div className="login__container">
                     <input
                     type="text"
@@ -40,10 +40,7 @@ function SignIn() {
                     </div>
                     
                 </div>
-            </div>
-        );    
-            
-            
+            </div> 
         </>
     )
 }
