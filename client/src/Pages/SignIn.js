@@ -3,17 +3,17 @@ import Hero from './Home/Hero copy'
 import { Link, useHistory } from "react-router-dom";
 import './Home/Home.css'
 import './Login.css'
-import { useAuthState } from "../../node_modules/react-firebase-hooks/auth";
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth, signInWithEmailAndPassword, signInWithGoogle } from "./firebase";
 function SignIn() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [user, loading, error] = useAuthState(auth);
     
-    const history = useHistory();
-    useEffect(() => {
-        if (user) history.replace("/");
-    }, [user, loading]);
+    //const history = useHistory();
+    //useEffect(() => {
+    //    if (user) history.replace("/");
+    //}, [user, loading]);
     return (
         <>
             <img src='/images/hero-image.svg' id='background' />
