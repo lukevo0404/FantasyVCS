@@ -1,7 +1,10 @@
 //firebase
-import firebase from "firebase";
+//import firebase from 'firebase';
+import firebase from 'firebase/compat/app';
+import 'firebase/compat/auth';
+import 'firebase/compat/firestore';
 
-
+//const firebase = require("firebase");
 const firebaseConfig = {
   apiKey: "AIzaSyAeU6ZSPhsceWwDyw2tiiXPQ41b7sRdbVA",
   authDomain: "fwda3-b1862.firebaseapp.com",
