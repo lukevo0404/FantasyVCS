@@ -3,11 +3,15 @@ import { Link } from 'react-router-dom';
 import { Button } from './Button';
 import './Navbar.css';
 
-function Navbar() {
+
+const STYLES = ['nav-trans', 'nav-solid']
+
+export const Navbar = ({navStyle}) => {
+  const checkNavStyle = STYLES.includes(navStyle) ? navStyle : STYLES[0];
 
   return (
     <>
-      <nav className='nav-wrapper navbar navbar-expand-lg navbar-light container-fluid'>
+      <nav className={`nav-wrapper navbar navbar-expand-lg navbar-light container-fluid ${checkNavStyle}` }>
         <div className='container-fluid'>
           <Link to='/' className='navbar-brand col-3' >
             <img src='logo-horizontal.svg' id='nav-logo' />
@@ -34,6 +38,4 @@ function Navbar() {
       </nav>
     </>
   )
-}
-
-export default Navbar
+};

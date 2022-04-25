@@ -11,6 +11,7 @@
 }
 
 .features-container img {
+    z-index: 2;
     width: 45%;
     margin-bottom: 1rem;
 }
@@ -21,7 +22,7 @@
 }
 
 #features-base {
-    width: 100%;
-    margin-top: -3.5rem;
-    z-index: -1;
+    width: 130%;
+    margin-top: -5rem;
+    z-index: 1;
 }

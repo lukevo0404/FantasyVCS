@@ -5,7 +5,33 @@ import React from 'react'
 const steps = [
   {
     stepNo: '1',
-    title: "League Set Up",
+    title: "Select an initial squad of:",
+    content: <><ul>
+      <li>2 Top
+      </li>
+      <li>2 Jgl
+      </li>
+      <li>2 Mid
+      </li>
+      <li>2 Adc
+      </li>
+      <li>2 Sp</li>
+    </ul></>,
+    image: './images/live-scoring.png',
+    first: true,
+  },
+  {
+    stepNo: '2',
+    title: "Select a captain for double points",
+    content: <><p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </p></>,
+    image: './images/live-scoring.png',
+
+  },
+  {
+    stepNo: '2',
+    title: "Watch the matches and wait for your chosen players' performance",
     content: <><ul>
       <li>3750 Alpha pass sale</li>
       <li>Public Sale Dec 12th 2021 9pm EST @ 0.11ETH</li>
@@ -13,18 +39,6 @@ const steps = [
       <li>Players can start catching Venari creatures</li>
     </ul></>,
     image: './images/live-scoring.png',
-    first: true,
-  },
-  {
-    stepNo: '2',
-    title: "Drafting",
-    content: <><ul>
-      <li>3750 Alpha pass sale</li>
-      <li>Public Sale Dec 12th 2021 9pm EST @ 0.11ETH</li>
-      <li>Early access to playable game MID DEC 2021</li>
-      <li>Players can start catching Venari creatures</li>
-    </ul></>,
-        image: './images/live-scoring.png',
 
   }
 ]
@@ -63,7 +77,7 @@ function HowToPlay() {
 
       <div className='htp-wrapper pt-5'>
         {steps.map(i => (
-          stepDiv(i.stepNo, i.title, i.content,i.image, i.first)
+          stepDiv(i.stepNo, i.title, i.content, i.image, i.first)
         ))}
 
       </div>

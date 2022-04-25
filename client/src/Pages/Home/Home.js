@@ -8,7 +8,7 @@ import CTA from './CTA'
 function Home() {
     return (
         <div className='home'>
-            <img src='/images/background.svg' id='background' />
+            <img src='/images/background.jpg' id='background' />
             <Hero />
             <div className="screenshot-container">
                 <img src='/images/hero-screenshot.png' id='hero-screenshot' />
