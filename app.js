@@ -7,38 +7,38 @@ const url = "https://gol.gg/tournament/tournament-matchlist/VCS%20Spring%202022/
 async function scrapeData() {
     try {
         
-      // Fetch HTML of the page we want to scrape
+      // Fetch HTML of the page 
       const { data } = await axios.get(url);
-      // Load HTML we fetched in the previous line
+
+      // Load HTML
       const $ = cheerio.load(data);
-      // Select all the list items in plainlist class
+
+      // Select all the td
       const listItems = $(".table_list tbody tr td.text-left");
-      console.log(listItems.html())
-      // Stores data for all countries
+
       const matchList = [];
-      // Use .each method to loop through the li we selected
+
+      // loop through the td
       listItems.each((idx, el) => {
-        // Object holding data for each country/jurisdiction
+
+        // Object for each match
         const match = { teamA: "", teamB: "", link: "" };
-        // Select the text content of a and span elements
-        // Store the textcontent in the above object
-        const teams = $(el).children("a").text().split(' vs ');
         
+        const teams = $(el).children("a").text().split(' vs ');
         match.teamA = teams[0];
         match.teamB = teams [1];
+
         const linkString = $(el).children("a").attr('href');
-        const link = linkString.substring(linkString.indexOf("../"), linkString.length)
+        const link = "https://gol.gg/" + linkString.substring(3, linkString.length);
         match.link = link;
-        // Populate countries array with country data
+
         matchList.push(match);
       });
-      // Logs countries array to the console
       console.dir(matchList);
-      // Write countries array in countries.json file
       
     } catch (err) {
       console.error(err);
     }
   }
-  // Invoke the above function
+  
   scrapeData();
