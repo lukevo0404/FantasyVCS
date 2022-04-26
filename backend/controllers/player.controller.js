@@ -5,7 +5,7 @@ const Player = db.player;
 exports.get = (req, res) => {
   const player = req.params.playerName;
 
-  Player.find({playerName:req.params.playerName})
+  Player.find({playerName:player})
     .then((data) => {
       if (!data)
         res
@@ -30,7 +30,7 @@ exports.update = (req, res) => {
 
   const player = req.params.playerName;
 
-  Player.findOneAndUpdate({playerName:req.params.playerName}, req.body, { useFindAndModify: false })
+  Player.findOneAndUpdate({playerName:player}, req.body, { useFindAndModify: false })
     .then((data) => {
       if (!data) {
         res.status(404).send({
@@ -49,7 +49,7 @@ exports.update = (req, res) => {
 exports.delete = (req, res) => {
     const player = req.params.playerName;
 
-  Player.findOneAndRemove({playerName:req.params.playerName})
+  Player.findOneAndRemove({playerName:player})
     .then((data) => {
       if (!data) {
         res.status(404).send({

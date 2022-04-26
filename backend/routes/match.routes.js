@@ -3,9 +3,16 @@ const router= express.Router();
 const Match = require('../models/match.model');
 
 const matchController = require('../controllers/match.controller')
-
+matchController.
 //Get all Players
-router.get('/', matchController.index);
+router.get('/', async (req,res)=>{
+    try{
+        const matches = await Match.find();
+        res.json(matches)
+    }catch(e){
+        res.json({message: e});
+    }
+});
 
 //Create new match data
 router.post('/', async (req,res)=>{
