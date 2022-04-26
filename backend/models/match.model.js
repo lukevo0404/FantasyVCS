@@ -9,7 +9,7 @@ const matchSchema= mongoose.Schema({
         type: Number,
         require: true
     },
-    type: {         //BO3 or BO5
+    numberofGame: {         //BO3 or BO5
         type: String,
         min: 3,
         max: 5,
