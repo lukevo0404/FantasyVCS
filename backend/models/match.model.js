@@ -5,29 +5,6 @@ const matchSchema= mongoose.Schema({
         type: Number,
         require: true
     },
-    date: {
-        type: String ,
-        require: true
-    },
-    patch: {
-        type: Number,
-        require: true
-    },
-    numberofGame: {         //BO3 or BO5
-        type: String,
-        min: 3,
-        max: 5,
-        require: true
-    },
-    length: {
-        type: String,
-        require: true
-    },
-    status: {
-        type: String,
-        enum: ['ongoing', 'finished', 'canceled', 'postponed'],
-        require: true
-    },
     teamAName: {
         type: String,
         require: true
@@ -38,6 +15,15 @@ const matchSchema= mongoose.Schema({
     },
     result: {
         type: String,
+        require: true
+    },
+    
+    patch: {
+        type: Number,
+        require: true
+    },
+    date: {
+        type: String ,
         require: true
     }
 });

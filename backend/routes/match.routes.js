@@ -42,10 +42,10 @@ router.delete('/:matchID',async (req,res)=>{
 //     res.send(id)
 // });
 //Get match by matchID
-router.get('/:id', async (req,res)=>{
-    const { id } = req.params;
+router.get('/:matchID', async (req,res)=>{
+    const { matchID } = req.params;
     try{
-        const match = await Match.find({id: id});
+        const match = await Match.find({matchID: matchID});
         res.json(match)
     }catch(e){
         res.json({message: e});
