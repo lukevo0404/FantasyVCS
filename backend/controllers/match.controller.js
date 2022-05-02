@@ -1,10 +1,10 @@
 const db = require ("../models/match.model");
 const Match = db.match;
 
-//Get Match
+//Get Match by id
 exports.get = (req, res) => {
     const id = req.params.id;
-
+  
   Match.findbyId(id)
     .then((data) => {
       if (!data)

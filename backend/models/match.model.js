@@ -1,6 +1,10 @@
 const mongoose= require('mongoose');
 
 const matchSchema= mongoose.Schema({
+    matchID: {
+        type: Number,
+        require: true
+    },
     date: {
         type: String ,
         require: true

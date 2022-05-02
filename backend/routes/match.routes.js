@@ -2,12 +2,12 @@ const express = require('express');
 const router= express.Router();
 const Match = require('../models/match.model');
 
-const matchController = require('../controllers/match.controller')
-matchController.
+const matchController = require('../controllers/match.controller');
+
 //Get all Players
 router.get('/', async (req,res)=>{
     try{
-        const matches = await Match.find();
+        const matches = await Match.find({}, {_id: 0});
         res.json(matches)
     }catch(e){
         res.json({message: e});
@@ -28,6 +28,7 @@ router.post('/', async (req,res)=>{
 
 //Delete match 
 router.delete('/:matchID',async (req,res)=>{
+    console.log(req.body);
     try{
         const removedMatch = await Match.remove({playerName: req.params.playerName});
         res.json(removedMatch);
@@ -36,10 +37,15 @@ router.delete('/:matchID',async (req,res)=>{
     }
 });
 
+// router.get('/:id', async (req,res)=>{
+//     const { id } = req.params;
+//     res.send(id)
+// });
 //Get match by matchID
-router.get('/:matchID', async (req,res)=>{
+router.get('/:id', async (req,res)=>{
+    const { id } = req.params;
     try{
-        const match = await Match.find({playerName:req.params.playerName});
+        const match = await Match.find({id: id});
         res.json(match)
     }catch(e){
         res.json({message: e});
