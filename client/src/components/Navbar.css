@@ -1,21 +1,4 @@
-.nav-item {
-    display: flex;
-    align-items: center;
-    font-size: 1rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    color: white !important;
-    margin: 0 1rem;
-}
-
-#nav-logo {
-    width: 100%;
-}
-
 @media screen and (min-width: 768px) {
-    .navbar-nav {
-        height: 3.5rem;
-    }
     .nav-wrapper {
         align-items: baseline !important;
     }
@@ -28,7 +11,72 @@
     }
 }
 
+@media screen and (max-width: 900px) {
+    .navbar-brand.col-3{
+        width: 40% !important;
+    }
+    .nav-wrapper {
+        position: fixed;
+        margin-bottom: 3rem;
+    }
+    .title-text-wrapper{
+        margin-top: 8rem;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .navbar-brand.col-3{
+        width: 60% !important;
+    }
+    .navbar-collapse.show .navbar-nav{
+        padding: 3rem !important;
+    }
+    
+    .navbar-collapse.show .nav-item{
+        padding: 3rem 0 !important;
+    }
+    .navbar-collapse{
+        margin-top: 1rem;
+    }
+}
+
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: white !important;
+    margin: 1rem 1rem;
+    padding: 1rem 1.5rem !important;
+    box-sizing: border-box;
+}
+
+#nav-logo {
+    width: 100%;
+}
+.navbar-collapse.show .navbar-nav{
+    height: auto;
+    border-radius: 1rem;
+    background-color: rgb(0, 0, 0, 0.85);
+    padding: 1rem;
+}
+
+.navbar-collapse.show .nav-item{
+    padding: 1rem;
+}
+
+.nav-wrapper{
+    background-image: linear-gradient(to bottom, #010a34 20%, rgb(1, 10, 52, 0) 100%);
+    z-index: 1000;
+}
+
 .nav-wrapper.nav-solid {
     background-image: linear-gradient(to bottom right, #0000aa 0%, #00197c 100%);
     box-shadow: 0px 0.2rem 2rem rgb(0, 0, 0, 0.65);
+}
+
+.navbar-collapse .nav-link{
+    margin: auto;
 }

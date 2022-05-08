@@ -17,9 +17,9 @@
 
 .htp-deco-line {
     position: absolute;
-    top: calc(0% - 13rem);
+    top: calc(0% - 14rem);
     left: calc(0% + 2rem);
-    height: 15rem;
+    height: 16rem;
     border-left: 4px white solid;
 }
 
@@ -59,6 +59,12 @@
     transform: translate(0, -50%);
 }
 
+.htp-text-heading{
+    display: flex;
+    flex-flow: row;
+    padding-top: 1rem;
+}
+
 .htp-text-heading h2 {
     color: white !important;
     background: none;
@@ -85,12 +91,49 @@
 }
 
 .htp-step-content {
-    padding-left: 5rem;
+    padding-left: 6rem;
     color: #C3BFFF;
     width: 80%;
 }
 
+.htp-step-content * {
+    line-height: 160%;
+}
+
+
 .htp-wrapper {
     width: 60%;
     margin: auto;
+}
+
+@media screen and (max-width: 400px) {
+    .htp-step{
+        padding: 1rem 0;
+    }
+    .htp-wrapper {
+        width: 90% !important;
+    }
+    .htp-image{
+        display: none;
+    }
+    .htp-text{
+        width: 90%;
+        margin: 0;
+        padding-left: 4rem;
+        box-sizing: border-box;
+    }
+    .htp-deco-line{
+        top: calc(0% - 23rem);
+        height: 25rem;
+    }
+    #line-1,#point-1{
+        z-index: 50;
+    }
+    .htp-step-no img{
+        top: calc(0% + 0.4rem);
+
+    }
+    .htp-container{
+        padding-bottom: 0;
+    }
 }

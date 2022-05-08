@@ -34,12 +34,12 @@
 
 .btn--medium:hover, .btn--large:hover {
     background: white;
-    color: var(--teal);
+    color: var(--blue);
     transition: all 0.3s ease-out;
     text-decoration: none;
 }
 
 .btn--outline:hover {
-    color: white !important;
+    /* color: white !important; */
     box-shadow: none;
 }
