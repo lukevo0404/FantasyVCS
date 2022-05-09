@@ -6,38 +6,44 @@ const steps = [
   {
     stepNo: '1',
     title: "Select an initial squad of:",
-    content: <><ul>
-      <li>2 Top
+    content: <>
+    <p>Pick your favourite player for each role:
+    <ul>
+      <li>Top Lane
       </li>
-      <li>2 Jgl
+      <li>Jungler 
       </li>
-      <li>2 Mid
+      <li>Middle Lane
       </li>
-      <li>2 Adc
+      <li>ADC 
       </li>
-      <li>2 Sp</li>
-    </ul></>,
+      <li>Support</li>
+    </ul>
+    </p>
+    </>,
     image: './images/live-scoring.png',
     first: true,
   },
   {
     stepNo: '2',
-    title: "Select a captain for double points",
-    content: <><p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    </p></>,
+    title: "Select your captain",
+    content: <>
+    <p>Select the most potential player in your team to be the captain. All captain points will be doubled!</p>
+    </>,
     image: './images/live-scoring.png',
 
   },
   {
-    stepNo: '2',
-    title: "Watch the matches and wait for your chosen players' performance",
-    content: <><ul>
-      <li>3750 Alpha pass sale</li>
-      <li>Public Sale Dec 12th 2021 9pm EST @ 0.11ETH</li>
-      <li>Early access to playable game MID DEC 2021</li>
-      <li>Players can start catching Venari creatures</li>
-    </ul></>,
+    stepNo: '3',
+    title: "Understand the scores",
+    content: <><p>Have a look at the Score Rule page to know how to the performance score are calculated.</p></>,
+    image: './images/live-scoring.png',
+
+  },
+  {
+    stepNo: '4',
+    title: "Enjoy!",
+    content: <><p>Get your popcorn, lay back and watch the Dream Team compete with your friends and family.</p></>,
     image: './images/live-scoring.png',
 
   }
@@ -45,7 +51,7 @@ const steps = [
 
 function stepDiv(stepNo, title, content, image, first) {
   return (
-    <div className="htp-step d-flex justify-content-center flex-column">
+    <div className="htp-step d-flex justify-content-center flex-column" id="howtoplay">
       <div className='htp-deco-line' id={first ? "line-1" : ""}></div>
       <div className='htp-deco-point' id={first ? "point-1" : ""}></div>
       <div>
