@@ -1,6 +1,11 @@
 const mongoose= require('mongoose');
 
 const playerSchema= mongoose.Schema({
+    playerID: {
+        type: Number,
+        require: true
+    },
+    
     playerName: {
         type: String ,
         require: true
