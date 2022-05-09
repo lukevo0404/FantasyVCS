@@ -5,8 +5,8 @@
 }
 
 body, html {
-    height: 100%;
     margin: 0;
+    overflow-x: hidden;
 }
 
 html {
@@ -16,22 +16,37 @@ html {
 body {
     font-family: 'Inter', sans-serif !important;
 }
+@media screen and (max-width: 400px) {
+    html {
+        font-size: 10px;
+    }
+}
 
-@media screen and (min-width: 900px) {
+@media screen and (max-width: 900px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 1500px) {
     html {
         font-size: 16px;
     }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 1501px) {
     html {
-        font-size: 20px;
+        font-size: 22px;
     }
 }
 
-@media screen and (min-width: 1500px) {
-    html {
-        font-size: 25px;
+@media screen and (max-width: 400px) {
+    .title-text-wrapper{
+        width:90% !important;
+    }
+    .title-text-wrapper.big-h1 h1{
+        font-size: 3rem !important;
+        letter-spacing: 0.2rem;
     }
 }
 

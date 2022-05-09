@@ -1,16 +1,18 @@
 .home {
-    background-color: #161430;
+    background-color: rgb(22, 20, 48);
+    height: 100%;
 }
 
 #background {
-    width: 101vw;
+    width: 100%;
     position: absolute;
     z-index: -10;
+    height: 100%;
 }
 
 .screenshot-container {
     position: relative;
-    width: 70%;
+    width: 90%;
     margin: auto;
     margin-top: -7rem;
 }
@@ -40,4 +42,11 @@
 #hr1 {
     margin-top: 12rem;
     margin-bottom: 8rem;
+}
+
+@media screen and (max-width: 400px) {
+    #hr1 {
+        margin-top: 8rem;
+        margin-bottom: 2rem;
+    }
 }

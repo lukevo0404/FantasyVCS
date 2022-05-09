@@ -11,17 +11,31 @@
 }
 
 .features-container img {
-    width: 45%;
+    z-index: 2;
+    width: 30%;
     margin-bottom: 1rem;
 }
 
 .features-container p {
     color: #C3BFFF;
-    width: 140%;
+    width: 100%;
 }
 
 #features-base {
     width: 100%;
-    margin-top: -3.5rem;
-    z-index: -1;
+    margin-top: -5rem;
+    z-index: 1;
 }
+
+@media screen and (max-width: 400px) {
+    .home-features-wrapper div{
+        flex-direction: column !important;
+    }
+    #features-base{
+        margin-bottom: -2rem;
+    }
+    .features-container {
+        margin-bottom: 1rem;
+    }
+}
+
