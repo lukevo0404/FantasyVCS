@@ -5,6 +5,7 @@ const pretty = require("pretty");
 let url = "https://gol.gg/tournament/tournament-matchlist/VCS%20Spring%202022/";
 
 scrapeMatchData();
+getGameDetails("37056", "37056","teamA");
 
 const gameList = [];
 const matchList = [];
@@ -79,6 +80,7 @@ async function scrapeMatchData() {
     });
 
     getMatchIDs();
+    console.log(matchList)
     
   } catch (err) {
     console.error(err);
@@ -252,4 +254,3 @@ async function getGameDetails(matchID, gameID, winner) {
   }
 }
 
-// getGameDetails("37056", "37056","teamA");
