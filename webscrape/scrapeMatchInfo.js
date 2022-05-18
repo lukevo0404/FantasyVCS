@@ -1,8 +1,12 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
+const { contains } = require("cheerio/lib/static");
 const pretty = require("pretty");
+const fs = require('fs');
+const matchList = [];
 
-const url = "https://gol.gg/tournament/tournament-matchlist/VCS%20Spring%202022/";
+
+let url = "https://gol.gg/tournament/tournament-matchlist/VCS%20Spring%202022/";
 
 async function scrapeData() {
     try {
@@ -14,98 +18,50 @@ async function scrapeData() {
       const $ = cheerio.load(data);
 
       // Select all the td
-      const listItems = $(".table_list tbody tr td.text-left");
+      
+      listItems = $(".table_list tbody tr td.text-left");
 
-      const matchList = [];
-
+      
       // loop through the td
-      listItems.each((idx, el) => {
-
-        // Object for each match
-        const match = { teamA: "", teamB: "", link: "" };
-        
+      listItems.each((idx, el) => {      
+        const match = { teamA: "", teamB: "", teamAscore:"", teamBscore:"", matchID: "" };  
         const teams = $(el).children("a").text().split(' vs ');
         match.teamA = teams[0];
-        match.teamB = teams [1];
+        match.teamB = teams[1];
 
         const linkString = $(el).children("a").attr('href');
-        const link = "https://gol.gg/" + linkString.substring(3, linkString.length);
-        match.link = link;
-
-        matchList.push(match);
+      const linkMatchIdString = linkString.split('../game/stats/').pop().split('/page-summary/')[0];
+      match.matchID = linkMatchIdString;
+        matchList.push(match)
       });
-      console.dir(matchList);
       
+      let i=0;
+      listItems = $(".table_list tbody tr td:nth-of-type(3)");
+      
+      listItems.each((idx, el) => {        
+        
+        const teamsScore = $(el).text().split(' - ');
+
+        matchList[i].teamAscore = teamsScore[0];
+        matchList[i].teamBscore = teamsScore[1];
+        i++;
+      });
+
+      console.log(matchList);
+      // var jsonContent = JSON.stringify(matchList);
+
+    //   fs.writeFile("output.json", jsonContent, 'utf8', function (err) {
+    //     if (err) {
+    //         console.log("An error occured while 0 JSON Object to File.");
+    //         return console.log(err);
+    //     }
+     
+    //     console.log("JSON file has been saved.");
+    // });
     } catch (err) {
       console.error(err);
     }
+    
   }
-  
-  scrapeData();
 
-  const game = {
-    matchID: "",
-    gameID: "",
-
-    player1AName: "",
-    player1AStatistics: {
-      role: "", kill: 0, dealth: 0, KDA: 0, visionScore: 0, soloKill: 0,
-      doubleKill: 0, tripleKill: 0, quadraKill: 0, pentaKill: 0,
-      objectiveStole: 0, win: false, lose: false,
-    },
-    player2AName: "",
-    player2AStatistics: {
-      role: "", kill: 0, dealth: 0, KDA: 0, visionScore: 0, soloKill: 0,
-      doubleKill: 0, tripleKill: 0, quadraKill: 0, pentaKill: 0,
-      objectiveStole: 0, win: false, lose: false,
-    },
-    player3AName: "",
-    player3AStatistics: {
-      role: "", kill: 0, dealth: 0, KDA: 0, visionScore: 0, soloKill: 0,
-      doubleKill: 0, tripleKill: 0, quadraKill: 0, pentaKill: 0,
-      objectiveStole: 0, win: false, lose: false,
-    },
-    player4AName: "",
-    player4AStatistics: {
-      role: "", kill: 0, dealth: 0, KDA: 0, visionScore: 0, soloKill: 0,
-      doubleKill: 0, tripleKill: 0, quadraKill: 0, pentaKill: 0,
-      objectiveStole: 0, win: false, lose: false,
-    },
-    player5AName: "",
-    player5AStatistics: {
-      role: "", kill: 0, dealth: 0, KDA: 0, visionScore: 0, soloKill: 0,
-      doubleKill: 0, tripleKill: 0, quadraKill: 0, pentaKill: 0,
-      objectiveStole: 0, win: false, lose: false,
-    },
-
-    player1BName: "",
-    player1BStatistics: {
-      role: "", kill: 0, dealth: 0, KDA: 0, visionScore: 0, soloKill: 0,
-      doubleKill: 0, tripleKill: 0, quadraKill: 0, pentaKill: 0,
-      objectiveStole: 0, win: false, lose: false,
-    },
-    player2BName: "",
-    player2BStatistics: {
-      role: "", kill: 0, dealth: 0, KDA: 0, visionScore: 0, soloKill: 0,
-      doubleKill: 0, tripleKill: 0, quadraKill: 0, pentaKill: 0,
-      objectiveStole: 0, win: false, lose: false,
-    },
-    player3BName: "",
-    player3BStatistics: {
-      role: "", kill: 0, dealth: 0, KDA: 0, visionScore: 0, soloKill: 0,
-      doubleKill: 0, tripleKill: 0, quadraKill: 0, pentaKill: 0,
-      objectiveStole: 0, win: false, lose: false,
-    },
-    player4BName: "",
-    player4BStatistics: {
-      role: "", kill: 0, dealth: 0, KDA: 0, visionScore: 0, soloKill: 0,
-      doubleKill: 0, tripleKill: 0, quadraKill: 0, pentaKill: 0,
-      objectiveStole: 0, win: false, lose: false,
-    },
-    player5BName: "",
-    player5BStatistics: {
-      role: "", kill: 0, dealth: 0, KDA: 0, visionScore: 0, soloKill: 0,
-      doubleKill: 0, tripleKill: 0, quadraKill: 0, pentaKill: 0,
-      objectiveStole: 0, win: false, lose: false,
-    },
-  };
+  module.exports = {scrapeData, matchList}

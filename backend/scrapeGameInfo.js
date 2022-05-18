@@ -2,9 +2,9 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 const { find } = require("domutils");
 const pretty = require("pretty");
-
 let url = "https://gol.gg/tournament/tournament-matchlist/VCS%20Spring%202022/";
 
+scrapeMatchData();
 
 const gameList = [];
 const matchList = [];
@@ -27,7 +27,7 @@ async function scrapeMatchData() {
     
     // loop through the td
     listItems.each((idx, el) => {      
-      const match = { teamA: "", teamB: "", teamAscore:"", teamBscore:"", matchID: "", winner:"" };  
+      const match = { teamA: "", teamB: "", teamAscore:"", teamBscore:"", matchID: "", winner:"", patch:"", date: "" };  
       const teams = $(el).children("a").text().split(' vs ');
       match.teamA = teams[0];
       match.teamB = teams[1];
@@ -56,18 +56,30 @@ async function scrapeMatchData() {
       }
       i++;
     });
-    getMatchIDs();
-    // console.log(matchList);
-    // var jsonContent = JSON.stringify(matchList);
+    
 
-  //   fs.writeFile("output.json", jsonContent, 'utf8', function (err) {
-  //     if (err) {
-  //         console.log("An error occured while 0 JSON Object to File.");
-  //         return console.log(err);
-  //     }
-   
-  //     console.log("JSON file has been saved.");
-  // });
+    i=0;
+    listItems = $(".table_list tbody tr td:nth-of-type(6)");
+    listItems.each((idx, el) => {        
+      
+      const patchString = $(el).text();
+
+      matchList[i].patch = patchString;
+      i++;
+    });
+
+    i=0;
+    listItems = $(".table_list tbody tr td:nth-of-type(7)");
+    listItems.each((idx, el) => {        
+      
+      const dateString = $(el).text();
+
+      matchList[i].date = dateString;
+      i++;
+    });
+
+    getMatchIDs();
+    
   } catch (err) {
     console.error(err);
   }
@@ -153,49 +165,49 @@ async function getGameDetails(matchID, gameID, winner) {
       player3: {
         name: "", role: "", kill: 0, dealth: 0, KDA: 0, visionScore: 0, soloKill: 0,
         doubleKill: 0, tripleKill: 0, quadraKill: 0, pentaKill: 0,
-        objectiveStole: 0, win: false, lose: false,
+        objectiveStole: 0, win: false
       },
 
       player4: {
         name: "", role: "", kill: 0, dealth: 0, KDA: 0, visionScore: 0, soloKill: 0,
         doubleKill: 0, tripleKill: 0, quadraKill: 0, pentaKill: 0,
-        objectiveStole: 0, win: false, lose: false,
+        objectiveStole: 0, win: false
       },
 
       player5: {
         name: "", role: "", kill: 0, dealth: 0, KDA: 0, visionScore: 0, soloKill: 0,
         doubleKill: 0, tripleKill: 0, quadraKill: 0, pentaKill: 0,
-        objectiveStole: 0, win: false, lose: false,
+        objectiveStole: 0, win: false
       },
 
       player6: {
         name: "", role: "", kill: 0, dealth: 0, KDA: 0, visionScore: 0, soloKill: 0,
         doubleKill: 0, tripleKill: 0, quadraKill: 0, pentaKill: 0,
-        objectiveStole: 0, win: false, lose: false,
+        objectiveStole: 0, win: false
       },
 
       player7: {
         name: "", role: "", kill: 0, dealth: 0, KDA: 0, visionScore: 0, soloKill: 0,
         doubleKill: 0, tripleKill: 0, quadraKill: 0, pentaKill: 0,
-        objectiveStole: 0, win: false, lose: false,
+        objectiveStole: 0, win: false
       },
 
       player8: {
         name: "", role: "", kill: 0, dealth: 0, KDA: 0, visionScore: 0, soloKill: 0,
         doubleKill: 0, tripleKill: 0, quadraKill: 0, pentaKill: 0,
-        objectiveStole: 0, win: false, lose: false,
+        objectiveStole: 0, win: false
       },
 
       player9: {
         name: "", role: "", kill: 0, dealth: 0, KDA: 0, visionScore: 0, soloKill: 0,
         doubleKill: 0, tripleKill: 0, quadraKill: 0, pentaKill: 0,
-        objectiveStole: 0, win: false, lose: false,
+        objectiveStole: 0, win: false
       },
 
       player10: {
         name: "", role: "", kill: 0, dealth: 0, KDA: 0, visionScore: 0, soloKill: 0,
         doubleKill: 0, tripleKill: 0, quadraKill: 0, pentaKill: 0,
-        objectiveStole: 0, win: false, lose: false,
+        objectiveStole: 0, win: false
       },
     }
 
@@ -232,6 +244,7 @@ async function getGameDetails(matchID, gameID, winner) {
         assignStats(game.player10, i, winner == "teamB" ? true : false);
       }
     }
+    gameList.push(game)
     console.log(gameList)
   
   } catch (err) {
@@ -239,6 +252,4 @@ async function getGameDetails(matchID, gameID, winner) {
   }
 }
 
-scrapeMatchData();
-
-getGameDetails("37056", "37056","teamA");
+// getGameDetails("37056", "37056","teamA");

@@ -5,12 +5,20 @@ const matchSchema= mongoose.Schema({
         type: Number,
         require: true
     },
-    teamAName: {
+    teamA: {
         type: String,
         require: true
     },
-    teamBName: {
+    teamB: {
         type: String,
+        require: true
+    },
+    teamAscore: {
+        type: Number,
+        require: true
+    },
+    teamBscore: {
+        type: Number,
         require: true
     },
     result: {
