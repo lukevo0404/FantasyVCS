@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useHistory } from "react-router-dom";
 import Hero from "../Hero"
-import './Home/Home.css'
+import './../Home.css'
 import './SignIn.css'
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth, signInWithEmailAndPassword, signInWithGoogle } from "./firebase";

@@ -2,6 +2,7 @@
     --gradient: linear-gradient(to top right, #26CBFF, #00FFD7);
     --blue: #26CBFF;
     --teal: #00FFD7;
+    --redgradient: linear-gradient(to top right, #ff5926, #ff0000);
 }
 
 body, html {
@@ -36,7 +37,7 @@ body {
 
 @media screen and (min-width: 1501px) {
     html {
-        font-size: 22px;
+        font-size: 20px;
     }
 }
 
@@ -49,6 +50,7 @@ body {
         letter-spacing: 0.2rem;
     }
 }
+
 
 h2 {
     background: var(--gradient);

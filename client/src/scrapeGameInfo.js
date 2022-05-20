@@ -1,18 +1,17 @@
 const axios = require("axios");
 const cheerio = require("cheerio");
-const { find } = require("domutils");
-const pretty = require("pretty");
 let url = "https://gol.gg/tournament/tournament-matchlist/VCS%20Spring%202022/";
 
 scrapeMatchData();
 getGameDetails("37056", "37056","teamA");
 
-const gameList = [];
-const matchList = [];
+export const gameList = [];
+export const matchList = [];
 const matchIDList = [];
+export const playerStats =[];
 
 //
-async function scrapeMatchData() {
+export async function scrapeMatchData() {
   try {
       
     // Fetch HTML of the page 
@@ -23,7 +22,7 @@ async function scrapeMatchData() {
 
     // Select all the td
     
-    listItems = $(".table_list tbody tr td.text-left");
+    let listItems = $(".table_list tbody tr td.text-left");
 
     
     // loop through the td
@@ -80,7 +79,6 @@ async function scrapeMatchData() {
     });
 
     getMatchIDs();
-    console.log(matchList)
     
   } catch (err) {
     console.error(err);
@@ -96,7 +94,7 @@ function getMatchIDs() {
 }
 
 //GET A GAME DETAILS
-async function getGameDetails(matchID, gameID, winner) {
+export async function getGameDetails(matchID, gameID, winner) {
   try {
     url = "https://gol.gg/game/stats/" + matchID + "/page-fullstats/";
     const { data } = await axios.get(url);
@@ -247,7 +245,22 @@ async function getGameDetails(matchID, gameID, winner) {
       }
     }
     gameList.push(game)
-    console.log(gameList)
+  
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+async function getPlayerStats(playerName) {
+  try {
+    url = "https://lol.fandom.com/wiki/" + playerName;
+    const { data } = await axios.get(url);
+    const $ = cheerio.load(data);
+
+    const player = { name: "", country: "", birth: "", team: "", role: "", champs: []};  
+
+    //Getting all cell data from table
+    const listItems = $(".completestats tr td");
   
   } catch (err) {
     console.error(err);

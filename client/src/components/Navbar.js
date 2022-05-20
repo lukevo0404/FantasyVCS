@@ -23,6 +23,9 @@ export const Navbar = ({navStyle}) => {
             <div className="navbar-nav">
               <a href="#features" className='nav-item nav-link'>Features</a>
               <a href="#howtoplay" className='nav-item nav-link'>How To Play</a>
+              <Link to='/dashboard' className='nav-item nav-link' >
+                Dashboard
+              </Link>
               <Link to='/' className='nav-item nav-link' >
                 <Button buttonStyle='btn--outline'>PLAY NOW</Button>
               </Link>
