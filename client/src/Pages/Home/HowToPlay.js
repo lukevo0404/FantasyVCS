@@ -30,14 +30,14 @@ const steps = [
     content: <>
     <p>Select the most potential player in your team to be the captain. All captain points will be doubled!</p>
     </>,
-    image: './images/live-scoring.png',
+    image: './images/Asset 6.png',
 
   },
   {
     stepNo: '3',
     title: "Understand the scores",
     content: <><p>Have a look at the Score Rule page to know how to the performance score are calculated.</p></>,
-    image: './images/live-scoring.png',
+    image: './images/Asset 5.png',
 
   },
   {

@@ -2,6 +2,7 @@ import axios from "axios";
 import cheerio from "cheerio";
 import { attr } from "cheerio/lib/api/attributes";
 import pretty from "pretty";
+import { useState } from "react";
 
 
 
@@ -34,7 +35,7 @@ export async function scrapePlayerData() {
           const { data } = await axios.get(url);
           const $ = cheerio.load(data);
 
-          const imgLinkString = $(".floatnone").first().children("a").children("img").attr("src")
+          const imgLinkString = $(".floatnone").first().children("a").attr("href")
           const imgLink = "https://static" + imgLinkString.split("https://static").pop().split('.png')[0] + ".png";
           player.team_img = imgLink;
 
@@ -79,7 +80,9 @@ export async function scrapePlayerData() {
 
     url = "https://lol.fandom.com/wiki/Special:RunQuery/TournamentStatistics?TS%5Bpreload%5D=TournamentByPlayerRole&TS%5Brole%5D=Support&TS%5Btournament%5D=VCS%2F2022+Season%2FSpring+Season&_run="
     playerRoleScrape(url, supportList)
-    
+
+    console.log(topList)
+    return true 
 
   } catch (err) {
     console.error(err);

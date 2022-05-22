@@ -36,8 +36,8 @@ export const Navbar = ({ navStyle }) => {
           </button>
           <div className="collapse navbar-collapse justify-content-end col-7" id="nav-main">
             <div className="navbar-nav">
-              <a href="#features" className='nav-item nav-link'>Features</a>
-              <a href="#howtoplay" className='nav-item nav-link'>How To Play</a>
+              <a href="/#features" className='nav-item nav-link'>Features</a>
+              <a href="/#howtoplay" className='nav-item nav-link'>How To Play</a>
               <Link to='/teampick' className='nav-item nav-link' >
                 Pick Your Team
               </Link>

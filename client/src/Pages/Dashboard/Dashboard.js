@@ -3,6 +3,7 @@ import { Navbar } from '../../components/Navbar'
 import './Dashboard.css'
 import { matchList, scrapeMatchData, getGameDetails, gameList} from "../../scrapeGameInfo"
 import { useNavigate } from 'react-router-dom'
+import TeamPick from '../Team Pick/TeamPick'
 
 function Dashboard() {
   const navigate = useNavigate()
@@ -52,6 +53,8 @@ function Dashboard() {
   useEffect(() => {
     getMatchList()
   }, [])
+
+
   return (
     <div className="page-wrapper">
       <Navbar navStyle={undefined} />
