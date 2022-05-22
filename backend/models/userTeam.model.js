@@ -18,6 +18,7 @@ const userTeamSchema= mongoose.Schema({
     },
 
     teamPlayer: [{
+        player1: {
         playerID: {
             type: Number,
             require: true
@@ -26,7 +27,48 @@ const userTeamSchema= mongoose.Schema({
             type: String,
             require: true
         },
-    }]
+},
+        player2: {
+        playerID: {
+            type: Number,
+            require: true
+        },
+        playerName: {
+            type: String,
+            require: true
+        },
+},
+        player3: {
+        playerID: {
+            type: Number,
+            require: true
+        },
+        playerName: {
+            type: String,
+            require: true
+        },
+},  
+        player4: {
+        playerID: {
+            type: Number,
+            require: true
+        },
+        playerName: {
+            type: String,
+            require: true
+        },
+},
+        player5: {
+        playerID: {
+            type: Number,
+            require: true
+        },
+        playerName: {
+            type: String,
+            require: true
+        },
+},
+}]
 });
 
 module.exports= mongoose.model('userteam', userTeamSchema);
