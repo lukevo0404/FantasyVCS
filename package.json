@@ -14,7 +14,8 @@
         "install-all": "concurrently \"npm run server-install\" \"npm run client-install\"",
         "getting": "concurrently \"npm run server\" \"npm run client\"",
         "start": "react-scripts start",
-    "build": "react-scripts build",
+        "react-need":"npm i react-scripts",
+    "build": "npm run react-need && react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
     },
