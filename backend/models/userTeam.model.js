@@ -18,56 +18,26 @@ const userTeamSchema= mongoose.Schema({
     },
 
     teamPlayer: [{
-        player1: {
-        playerID: {
+        player1ID: {
             type: Number,
             require: true
         },
-        playerName: {
-            type: String,
-            require: true
-        },
-},
-        player2: {
-        playerID: {
+        player2ID: {
             type: Number,
             require: true
         },
-        playerName: {
-            type: String,
-            require: true
-        },
-},
-        player3: {
-        playerID: {
+        player3ID: {
             type: Number,
             require: true
         },
-        playerName: {
-            type: String,
-            require: true
-        },
-},  
-        player4: {
-        playerID: {
+        player4ID: {
             type: Number,
             require: true
         },
-        playerName: {
-            type: String,
-            require: true
-        },
-},
-        player5: {
-        playerID: {
+        player5ID: {
             type: Number,
             require: true
-        },
-        playerName: {
-            type: String,
-            require: true
-        },
-},
+        }
 }]
 });
 
