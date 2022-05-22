@@ -20,3 +20,15 @@ Follow these instructions to run a development environment.
     ```
     npm run install-all
     ```
+
+  - Run backend with the following command at root:
+
+  ```
+  npm run server
+  ```
+
+  - Run frontend with the following command at root:
+
+  ```
+  npm run client
+  ```
