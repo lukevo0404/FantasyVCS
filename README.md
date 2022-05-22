@@ -32,3 +32,5 @@ Follow these instructions to run a development environment.
   ```
   npm run client
   ```
+
+  - Log in with email user1@gmail.com password user1:
