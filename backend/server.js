@@ -21,6 +21,9 @@ const db = require("./models");
 const Role = db.role;
 
 const matchRoute = require('./routes/match.routes');
+const userRoute = require('./routes/user.routes');
+const authRoute = require('./routes/user.routes');
+
 
 const url =
 "mongodb+srv://timmyha619:14chui2103@ducdb.kjkro.mongodb.net/api_fantasy?retryWrites=true&w=majority";
@@ -44,9 +47,10 @@ app.get("/", (req, res) => {
 });
 
 // routes
+// app.use('/api/test', userRoute);
+// app.use('', authRoute);
 require("./routes/auth.routes")(app);
 require("./routes/user.routes")(app);
-
 app.use('/matches', matchRoute);
 
 // set port, listen for requests

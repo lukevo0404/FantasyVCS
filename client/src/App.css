@@ -1,5 +1,6 @@
 :root {
     --gradient: linear-gradient(to top right, #26CBFF, #00FFD7);
+    --greengradient: linear-gradient(to top right, #26ffc9, #00ff22);
     --blue: #26CBFF;
     --teal: #00FFD7;
     --redgradient: linear-gradient(to top right, #ff5926, #ff0000);
@@ -51,6 +52,13 @@ body {
     }
 }
 
+h1 {
+    background: var(--greengradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+    margin-bottom: 1rem;
+}
 
 h2 {
     background: var(--gradient);
