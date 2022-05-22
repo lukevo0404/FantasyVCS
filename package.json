@@ -12,7 +12,8 @@
         "server-install": "npm install",
         "client-install": "cd client && npm install",
         "install-all": "concurrently \"npm run server-install\" \"npm run client-install\"",
-        "build": "concurrently \"npm run server\" \"npm run client\""
+        "getting": "concurrently \"npm run server\" \"npm run client\"",
+        "build": "npm run install-all && npm run getting"
     },
     "devDependencies": {
         "concurrently": "^7.1.0"
